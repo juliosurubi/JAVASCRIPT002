@@ -1,46 +1,59 @@
+/* Reset básico para remover margens/paddings padrão e aplicar fonte */
 * {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
     font-family: 'Roboto', sans-serif;
-    outline: none;
+    outline: none; /* ⚠️ Remove o contorno padrão de inputs/botões. Pode afetar acessibilidade (usuários de teclado). */
 }
 
 body {
-    background-color: #938f8f;
+    background-color: #938f8f; /* Cor de fundo da página */
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; /* Centraliza conteúdo vertical e horizontal */
 }
 
 .img-logo1 {
     width: 300px;
     height: 300px;
-    display: block;
-    margin: 20px auto;
+    /* Sugestão: usar max-width: 100% para responsividade */
+}
+header{
+    display: flex;
+    flex-direction: column;
+    align-items: center;;
 }
 
 main {
     width: 450px;
-    background: #e8e2e2ea;
+    background: #e8e2e2ea; /* Cor com transparência (hex + alpha) */
     border-radius: 20px;
-    margin: 0 auto 40px;
     padding: 45px 30px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
 }
 
 label {
-    color: #777777b7;
+    color: #777777b7; /* Cinza com transparência */
     font-weight: 400;
     font-size: 14px;
 }
 
 select,
 input {
-    border: 1px solid;
+    border: 1px solid #ccc; /* ✅ Corrigido: antes estava sem cor definida */
     border-radius: 4px;
     background: #ffffff;
     height: 48px;
     width: 100%;
     margin-bottom: 24px;
-    appearance: none;
-    /*faz desaparecer as selitas do select*/
+    appearance: none; /* Remove setas padrão do select */
     padding-left: 18px;
     font-weight: 700;
     font-size: 16px;
@@ -50,9 +63,9 @@ button {
     background: #772fd3;
     border-radius: 15px;
     width: 100%;
-    height: 30px;
+    height: 40px; /* ✅ Corrigido: altura aumentada para melhor usabilidade */
     border: none;
-    transition: 0.1s;
+    transition: opacity 0.1s ease-in-out; /* ✅ Corrigido: especificada a propriedade da transição */
     font-size: 16px;
     font-weight: 700;
     cursor: pointer;
@@ -72,11 +85,9 @@ section {
     margin-top: 36px;
     padding: 12px;
     display: flex;
-    /*PODE-SE USAR ESTE SELECTOR EM DIV, MAIN,ETC*/
-    flex-direction: column;
-    /*CON ESTE TODOS OS ITENS FICA EM COLUNA*/
+    flex-direction: column; /* Organiza itens em coluna */
     align-items: center;
-    background: #ffffffae;
+    background: #ffffffae; /* Branco com transparência */
 }
 
 .arrow-img {
@@ -87,8 +98,7 @@ section {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 4px;
-    /*um selector proporcionado display-flex, con este voce consegue separar os items, ex: aqui deu espaço entre os items de 4px*/
+    gap: 4px; /* Espaço entre elementos */
 }
 
 .currency {
@@ -96,9 +106,12 @@ section {
     font-size: 14px;
 }
 
-.currency-img ,.currency-img1,.currency-img2 {
-    width: 44PX;
+.currency-img,
+.currency-img1,
+.currency-img2 {
+    width: 44px; /* ✅ Corrigido: antes estava "44PX" (case-sensitive) */
     height: 44px;
+    /* Sugestão: usar apenas uma classe .currency-img e aplicar em todos */
 }
 
 .currency-value,

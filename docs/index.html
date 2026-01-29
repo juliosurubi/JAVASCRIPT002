@@ -16,48 +16,57 @@
 </head>
 
 <body>
-    <img class="img-logo1" src="img/logo2.png" alt="logo-devClub">
-    <main>
-        <label>
-            Converter <b>de</b>
-            <select>
-                <option>R$ Real Brasileiro</option>
-            </select>
-        </label>
-        <label>
-            Converter <b>para</b>
-            <select class="currency-Select">
-                <option value="dolar">US$ Dólar Americano</option>
-                <option value="euro">€ Euro</option>
-                <option value="bitcoin">₿  BitCoin</option>
-                <option value="libras">£ Libras</option>
-            </select>
+    <div class="container">
+        <header>
+            <h1>Conversor de Moedas</h1>
+            <img class="img-logo1" src="img/logo2.png" alt="logo-devClub">
+        </header>
+        
+        <main>
+            <label>
+                Converter <b>de</b>
+                <select>
+                    <option>R$ Real Brasileiro</option>
+                </select>
+            </label>
+            <label>
+                Converter <b>para</b>
+                <select class="currency-Select">
+                    <option value="dolar">US$ Dólar Americano</option>
+                    <option value="boliviano">Bs$ Boliviano</option>
+                    <option value="euro">€ Euro</option>
+                    <option value="bitcoin">₿ BitCoin</option>
+                    <option value="libras">£ Libras</option>
+                </select>
 
-        </label>
-        <label>
-            Valor
-            <input class="input-currency" placeholder="R$ 1.0000,00">
-        </label>
+            </label>
+            <label>
+                Valor
+                <input class="input-currency" placeholder="R$ 1.0000,00">
+            </label>
 
-        <button class="convert-button">Converter</button>
+            <button class="convert-button">Converter</button>
 
-        <section>
-            <div class="currency-box">
-                <img src="img/logoBRASIL.png" alt="logo-moeda-a converter">
-                <p class="currency">Real</p>
-                <p class="currency-value-to-convert">US$ 0,00</p>
-            </div>
-            
-            <img class="arrow-img" src="img/seta.png" alt="">
+            <section>
+                <div class="currency-box">
+                    <img src="img/logoBRASIL.png" alt="logo-moeda-a converter">
+                    <p class="currency">Real</p>
+                    <p class="currency-value-to-convert">US$ 0,00</p>
+                </div>
 
-            <div class="currency-box">
-                <img class="currency-img" src="img/logoUSA.png" alt="moeda-conveertida">
-                <p class="currency" id="currency-name">Dólar</p>
-                <p class="currency-value">US$ 0.00</p>
-            </div>
+                <img class="arrow-img" src="img/seta.png" alt="">
 
-        </section>
-    </main>
+                <div class="currency-box">
+                    <img class="currency-img" src="img/logoUSA.png" alt="moeda-conveertida">
+                    <p class="currency" id="currency-name">Dólar</p>
+                    <p class="currency-value">US$ 0.00</p>
+                </div>
+
+            </section>
+        </main>
+
+    </div>
+
 
 </body>
 
