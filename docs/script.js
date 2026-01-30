@@ -9,11 +9,12 @@ async function convertValues() {
     // Captura o valor digitado no input e transforma em número
     const inputCurrencyValue = parseFloat(document.querySelector(".input-currency").value)
 
+    // Seleciona os elementos que exibem os valores
     const currencyValueToConvert = document.querySelector(".currency-value-to-convert") // valor em Real
     const currencyValue = document.querySelector(".currency-value") // valor convertido
 
     // Faz a requisição na API para obter as cotações
-    const response = await fetch("https://economia.awesomeapi.com.br/json/last/USD-BRL,EUR-BRL,BTC-BRL,GBP-BRL")
+    const response = await fetch("https://economia.awesomeapi.com.br/json/last/USD-BRL,EUR-BRL,BTC-BRL,GBP-BRL,BOB-BRL")
     const data = await response.json()
 
     // Guarda os valores atuais das moedas
@@ -21,6 +22,7 @@ async function convertValues() {
     const euroToday = data.EURBRL.high
     const bitCoinToday = data.BTCBRL.high
     const librasToday = data.GBPBRL.high
+    const bolivianoToday = data.BOBBRL.high
 
     let convertedValue = 0 // resultado da conversão
 
@@ -54,6 +56,15 @@ async function convertValues() {
         currencyValue.innerHTML = new Intl.NumberFormat("en-GB", {
             style: "currency",
             currency: "GBP"
+        }).format(convertedValue)
+    }
+
+    // Conversão para Boliviano
+    if (currencySelect.value === "boliviano") {
+        convertedValue = inputCurrencyValue / bolivianoToday
+        currencyValue.innerHTML = new Intl.NumberFormat("es-BO", {
+            style: "currency",
+            currency: "BOB"
         }).format(convertedValue)
     }
 
@@ -91,10 +102,15 @@ function changeCurrency() {
         currencyImg.src = "./img/logoLIBRA.png"
     }
 
+    if (currencySelect.value === "boliviano") {
+        currencyName.innerHTML = "Boliviano"
+        currencyImg.src = "./img/logoBOLIVIA.png"
+    }
+
     // Atualiza a conversão automaticamente
     convertValues()
 }
 
-// Eventos
+// Eventos: quando clicar no botão ou mudar a moeda
 convertButton.addEventListener("click", convertValues)
 currencySelect.addEventListener("change", changeCurrency)

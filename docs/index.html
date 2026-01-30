@@ -5,71 +5,78 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <!-- Importa a fonte Roboto do Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 
+    <!-- Arquivo CSS externo -->
     <link rel="stylesheet" href="style.css">
 
-    <title>conversor de moeda</title>
+    <title>Conversor de Moedas</title>
 </head>
 
 <body>
     <div class="container">
         <header>
             <h1>Conversor de Moedas</h1>
+            <!-- Logo do projeto -->
             <img class="img-logo1" src="img/logo2.png" alt="logo-devClub">
         </header>
-        
+
         <main>
+            <!-- Seleção da moeda de origem (fixo em Real) -->
             <label>
                 Converter <b>de</b>
                 <select>
                     <option>R$ Real Brasileiro</option>
                 </select>
             </label>
+
+            <!-- Seleção da moeda de destino -->
             <label>
                 Converter <b>para</b>
-                <select class="currency-Select">
+                <select class="currency-select">
                     <option value="dolar">US$ Dólar Americano</option>
                     <option value="boliviano">Bs$ Boliviano</option>
                     <option value="euro">€ Euro</option>
                     <option value="bitcoin">₿ BitCoin</option>
                     <option value="libras">£ Libras</option>
                 </select>
-
             </label>
+
+            <!-- Campo para digitar o valor em reais -->
             <label>
                 Valor
-                <input class="input-currency" placeholder="R$ 1.0000,00">
+                <input class="input-currency" placeholder="R$ 1.000,00">
             </label>
 
+            <!-- Botão que dispara a conversão -->
             <button class="convert-button">Converter</button>
 
+            <!-- Área que mostra os valores -->
             <section>
+                <!-- Caixa da moeda de origem -->
                 <div class="currency-box">
                     <img src="img/logoBRASIL.png" alt="logo-moeda-a converter">
                     <p class="currency">Real</p>
-                    <p class="currency-value-to-convert">US$ 0,00</p>
+                    <p class="currency-value-to-convert">R$ 0,00</p>
                 </div>
 
-                <img class="arrow-img" src="img/seta.png" alt="">
+                <img class="arrow-img" src="img/seta.png" alt="seta">
 
+                <!-- Caixa da moeda convertida -->
                 <div class="currency-box">
-                    <img class="currency-img" src="img/logoUSA.png" alt="moeda-conveertida">
+                    <img class="currency-img" src="img/logoUSA.png" alt="moeda-convertida">
                     <p class="currency" id="currency-name">Dólar</p>
                     <p class="currency-value">US$ 0.00</p>
                 </div>
-
             </section>
         </main>
-
     </div>
 
-
+    <!-- Importa o script JS -->
+    <script src="script.js"></script>
 </body>
-
-<script src="script.js"></script>
 
 </html>
