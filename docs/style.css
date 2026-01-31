@@ -1,109 +1,134 @@
-/* Reset básico */
+/* ===========================
+   Reset e variáveis globais
+   =========================== */
+:root {
+    --bg-color: #938f8f;
+    --primary-color: #772fd3;
+    --text-color: #555555;
+    --text-light: #777777;
+    --font-family: 'Roboto', sans-serif;
+}
+
 * {
-    padding: 0;
     margin: 0;
+    padding: 0;
     box-sizing: border-box;
-    font-family: 'Roboto', sans-serif;
-    outline: none; /* ⚠️ Remove o contorno padrão de inputs/botões */
+    font-family: var(--font-family);
+}
+
+/* Mantém acessibilidade: outline visível mas estilizado */
+button:focus,
+input:focus,
+select:focus {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
 }
 
 body {
-    background-color: #938f8f; /* Cor de fundo da página */
+    background-color: var(--bg-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Centraliza verticalmente */
+    padding: 10px;
 }
 
-/* Container centralizado */
+/* ===========================
+   Container principal
+   =========================== */
 .container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    padding: 20px; /* Adiciona espaçamento interno para telas pequenas */
+    width: 100%;
+    max-width: 500px; /* Limite em telas grandes */
 }
 
-/* Logo principal */
+/* Logo */
 .img-logo1 {
-    width: 300px;
-    height: auto; /* Mantém proporção da imagem */
-    max-width: 100%; /* Responsivo: nunca ultrapassa a tela */
+    width: 100%;
+    max-width: 250px;
+    height: auto;
+    margin-bottom: 20px;
 }
 
 header {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center; /* Centraliza texto em telas pequenas */
+    text-align: center;
 }
 
-/* Caixa principal */
+/* ===========================
+   Caixa principal
+   =========================== */
 main {
-    width: 100%; /* Ocupa toda largura disponível */
-    max-width: 450px; /* Limite para telas grandes */
-    background: #e8e2e2ea;
+    width: 100%;
+    background: #f5f5f5;
     border-radius: 20px;
-    padding: 45px 30px;
+    padding: 2rem 1.5rem;
     display: flex;
-    justify-content: center;
     flex-direction: column;
+    gap: 1rem;
 }
 
 /* Labels */
 label {
-    color: #777777b7;
+    color: var(--text-light);
+    font-size: 0.9rem;
     font-weight: 400;
-    font-size: 14px;
 }
 
 /* Inputs e selects */
 select,
 input {
     border: 1px solid #ccc;
-    border-radius: 4px;
-    background: #ffffff;
+    border-radius: 6px;
+    background: #fff;
     height: 48px;
     width: 100%;
-    margin-bottom: 24px;
-    appearance: none;
-    padding-left: 18px;
-    font-weight: 700;
-    font-size: 16px;
+    padding-left: 14px;
+    font-weight: 600;
+    font-size: 1rem;
+    margin-top: 6px;
 }
 
 /* Botão */
 button {
-    background: #772fd3;
-    border-radius: 15px;
+    background: var(--primary-color);
+    border-radius: 12px;
     width: 100%;
-    height: 48px; /* Altura maior para toque em celular */
+    height: 48px;
     border: none;
-    transition: opacity 0.1s ease-in-out;
-    font-size: 16px;
+    transition: opacity 0.2s ease-in-out;
+    font-size: 1rem;
     font-weight: 700;
+    color: #fff;
     cursor: pointer;
 }
 
 button:hover {
-    opacity: .8;
+    opacity: 0.85;
 }
 
 button:active {
-    opacity: .5;
+    opacity: 0.65;
 }
 
-/* Caixa de resultado */
+/* ===========================
+   Caixa de resultado
+   =========================== */
 section {
-    border-radius: 20px;
-    border: 1px solid #772fd3;
-    margin-top: 36px;
-    padding: 12px;
+    border-radius: 16px;
+    border: 1px solid var(--primary-color);
+    margin-top: 20px;
+    padding: 16px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    background: #ffffffae;
+    background: #ffffffd9;
 }
 
 .arrow-img {
     margin: 15px 0;
-    max-width: 40px; /* Ajusta seta para telas pequenas */
+    max-width: 36px;
 }
 
 /* Caixa de moeda */
@@ -111,64 +136,65 @@ section {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 4px;
+    gap: 6px;
 }
 
 .currency {
-    color: #777777;
-    font-size: 14px;
+    color: var(--text-light);
+    font-size: 0.9rem;
 }
 
 .currency-img {
     width: 44px;
     height: 44px;
-    max-width: 100%; /* Responsivo */
 }
 
 .currency-value,
-.currency-value-to-convert,
-.input-currency {
-    font-size: 20px;
-    color: #555555;
+.currency-value-to-convert {
+    font-size: 1.2rem;
+    color: var(--text-color);
     font-weight: 700;
-    text-align: center; /* Centraliza valores em telas pequenas */
+    text-align: center;
 }
 
-/* 📱 Media Queries para telas menores */
+/* ===========================
+   Responsividade
+   =========================== */
 @media (max-width: 600px) {
     main {
-        padding: 25px 15px; /* Reduz padding em celulares */
+        padding: 1.5rem 1rem;
     }
 
     .img-logo1 {
-        width: 200px; /* Logo menor em telas pequenas */
+        max-width: 180px;
     }
 
     button {
-        font-size: 14px; /* Texto menor no botão */
+        font-size: 0.9rem;
     }
 
     .currency-value,
     .currency-value-to-convert {
-        font-size: 18px; /* Ajusta tamanho da fonte */
+        font-size: 1rem;
     }
 }
 
-@media (max-width: 400px) {
+@media (max-width: 350px) {
     main {
-        padding: 20px 10px;
+        padding: 1rem;
     }
 
     .img-logo1 {
-        width: 150px;
+        max-width: 120px;
     }
 
     label {
-        font-size: 12px;
+        font-size: 0.8rem;
     }
 
     select,
     input {
-        font-size: 14px;
+        font-size: 0.9rem;
     }
 }
+
